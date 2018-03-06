@@ -19,7 +19,6 @@ getDataJson = json => {
         const episode = element.episode_id;
 
         const characters = element.characters;
-        // console.log(characters);
 
         let charactersUrl = characters.map(element => {
             const objCharacter = {
@@ -32,30 +31,27 @@ getDataJson = json => {
 }
 
 paintInfo = (title, episode, charactersUrl) => {
-    let container = document.getElementsByClassName('container-info');
+    let container = document.getElementById('container-result');
     charactersUrl.forEach(element => {
-        console.log(element.url);
+        // console.log(element.url);
     });
     let output = `
-        <div class="row">
         <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://dummyimage.com/100x300">
-              <span class="card-title">${title}</span>
+            <h2 class="header">${title}</h2>
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="https://dummyimage.com/150x200">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <p>Episode: ${episode}</p>
+                </div>
+                <div class="card-action">
+                 
+                </div>
+              </div>
             </div>
-            <div class="card-content">
-              <p>Episode: ${episode}</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
         </div>
-      </div>
-    `
-    // container.insertAdjacentHTML('beforeEnd', output);//revisar
+        `
+    container.insertAdjacentHTML('beforeEnd', output);
 }
-
-
-// content.insertAdjacentHTML('beforeEnd', hero);
